@@ -14,8 +14,8 @@ function(add_interface_library include_dir library_name)
     target_include_directories(
         "${library_name}"
         INTERFACE
-        $<BUILD_INTERFACE:"${PROJECT_SOURCE_DIR}/${include_dir}">
-        $<INSTALL_INTERFACE:"${CMAKE_INSTALL_INCLUDEDIR}">
+        "$<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/${include_dir}>"
+        "$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>"
     )
 
     install(
