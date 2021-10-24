@@ -9,7 +9,7 @@ include(CMakePackageConfigHelpers)
 # ${include_dir}/${library_name}
 function(add_interface_library include_dir library_name)
     add_library("${library_name}" INTERFACE)
-    add_library("${library_name}::${library_name}" ALIAS my_library)
+    add_library("${library_name}::${library_name}" ALIAS "${library_name}")
 
     target_include_directories(
         "${library_name}"
