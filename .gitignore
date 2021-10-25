@@ -1,4 +1,5 @@
 .ccls-cache/
 build/
-release/
-debug/
+Release/
+Debug/
+Sanitize/
