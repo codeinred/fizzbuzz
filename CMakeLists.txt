@@ -1,10 +1,10 @@
 cmake_minimum_required(VERSION 3.14)
 
 project(
-    "my_project"
-    VERSION 0.0.0
-    DESCRIPTION "A New C++ Project"
-    HOMEPAGE_URL "https://github.com/codeinred/cpp-setup/"
+    "fizzbuzz"
+    VERSION 0.0.1
+    DESCRIPTION "HPC FizzBuzz"
+    HOMEPAGE_URL "https://github.com/codeinred/fizzbuzz"
     LANGUAGES CXX
 )
 
@@ -17,7 +17,14 @@ include(installation)
 option(
     BUILD_TESTING
     "Build testing for ${PROJECT_NAME}"
-    ON)
+    OFF)
+
+
+find_or_fetch(
+    fmt
+    https://github.com/fmtlib/fmt.git
+    master)
+add_source_dir(src fmt)
 
 if(PROJECT_IS_TOP_LEVEL AND BUILD_TESTING)
 
