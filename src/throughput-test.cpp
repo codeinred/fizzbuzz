@@ -1,7 +1,9 @@
-#include <unistd.h>
+#include <fcntl.h>
+#include <sys/uio.h>
 
 int main() {
-    char buffer[8192] {'\0'};
-    while (write(1, buffer, sizeof(buffer)) >= 0)
+    char buffer[131072] {'\0'};
+    auto io = iovec{buffer, sizeof(buffer)};
+    while (vmsplice(1, &io, 1, 0) >= 0)
         ;
 }
