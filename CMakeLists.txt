@@ -19,12 +19,12 @@ option(
     "Build testing for ${PROJECT_NAME}"
     OFF)
 
-
+find_package(Threads)
 find_or_fetch(
     fmt
     https://github.com/fmtlib/fmt.git
     master)
-add_source_dir(src fmt)
+add_source_dir(src fmt Threads::Threads)
 
 if(PROJECT_IS_TOP_LEVEL AND BUILD_TESTING)
 
